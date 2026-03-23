@@ -221,9 +221,11 @@ export async function fetchAllNews(sources: Array<{
     fetchGNewsArticles({ language: "fr", category: "world" }),
     fetchGNewsArticles({ language: "en", category: "world" }),
     fetchGNewsArticles({ language: "de", category: "world" }),
-    // Fiscal / Tax
+    // Fiscal / Tax / Legal — Luxembourg focus
     fetchGNewsArticles({ language: "fr", query: "fiscalité impôts Luxembourg", targetCategory: "fiscal" }),
-    fetchGNewsArticles({ language: "en", query: "tax regulation Luxembourg", targetCategory: "fiscal" }),
+    fetchGNewsArticles({ language: "fr", query: "CSSF CNPD réglementation Luxembourg", targetCategory: "fiscal" }),
+    fetchGNewsArticles({ language: "en", query: "Luxembourg tax regulation CSSF compliance", targetCategory: "fiscal" }),
+    fetchGNewsArticles({ language: "fr", query: "TVA Luxembourg AED loi fiscale", targetCategory: "fiscal" }),
     // Wellness / Health
     fetchGNewsArticles({ language: "fr", query: "bien-être santé", targetCategory: "wellness" }),
     fetchGNewsArticles({ language: "de", category: "health" }),

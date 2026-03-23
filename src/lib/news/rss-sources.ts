@@ -40,7 +40,10 @@ export const DEFAULT_RSS_SOURCES: RssSourceConfig[] = [
   { name: "La Tribune", url: "https://www.latribune.fr/rss/rubriques/economie.html", category: "economy", language: "fr", region: null },
   { name: "Wirtschaftswoche", url: "https://www.wiwo.de/rss/feed.rss", category: "economy", language: "de", region: null },
 
-  // --- Fiscal ---
+  // --- Fiscal & Legal (Luxembourg institutional) ---
+  { name: "Gouvernement.lu", url: "https://gouvernement.lu/fr/actualites/toutes_actualites.rss", category: "fiscal", language: "fr", region: "luxembourg" },
+  { name: "AED (TVA & Enregistrement)", url: "https://aed.gouvernement.lu/fr/actualites.rss", category: "fiscal", language: "fr", region: "luxembourg" },
+  { name: "CSSF", url: "https://www.cssf.lu/en/rss-feed/", category: "fiscal", language: "en", region: "luxembourg" },
   { name: "PwC Luxembourg Tax", url: "https://blog.pwc.lu/feed/", category: "fiscal", language: "en", region: "luxembourg" },
   { name: "Deloitte Luxembourg", url: "https://www.deloitte.com/lu/en/blog.rss.xml", category: "fiscal", language: "en", region: "luxembourg" },
   { name: "EY Tax Insights", url: "https://www.ey.com/en_gl/tax/rss", category: "fiscal", language: "en", region: null },
