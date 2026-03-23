@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import {
   Newspaper,
   Rss,
@@ -62,7 +61,7 @@ export function MobileSidebar({ user, open, onClose }: MobileSidebarProps) {
       <aside className="fixed inset-y-0 left-0 w-64 flex flex-col bg-sidebar-background shadow-xl">
         <div className="flex h-16 items-center justify-between border-b px-6">
           <div className="flex items-center gap-2">
-            <Image src="/gsl-logo.svg" alt="GSL" width={28} height={28} />
+            <img src="/gsl-logo.svg" alt="GSL" className="h-7 w-7" />
             <span className="font-bold text-sm text-sidebar-foreground">
               {t("common.appName")}
             </span>

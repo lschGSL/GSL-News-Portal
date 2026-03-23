@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import {
   Newspaper,
   Rss,
@@ -46,7 +45,7 @@ export function Sidebar({ user }: { user: UserProfile | null }) {
   return (
     <aside className="hidden w-64 flex-col border-r bg-sidebar-background lg:flex">
       <div className="flex h-16 items-center gap-2 border-b px-6">
-        <Image src="/gsl-logo.svg" alt="GSL" width={28} height={28} />
+        <img src="/gsl-logo.svg" alt="GSL" className="h-7 w-7" />
         <span className="font-bold text-sm text-sidebar-foreground">
           {t("common.appName")}
         </span>
