@@ -43,7 +43,9 @@
     "admin": "Administration",
     "newArticle": "Nouvel article",
     "moderation": "Modération",
-    "sources": "Sources"
+    "sources": "Sources",
+    "editor": "Éditeur",
+    "settings": "Paramètres"
   },
   "news": {
     "latestNews": "Dernières actualités",

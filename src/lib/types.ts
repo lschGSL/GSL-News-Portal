@@ -30,14 +30,14 @@ export const CATEGORY_LABELS: Record<NewsCategory, Record<string, string>> = {
 };
 
 export const CATEGORY_COLORS: Record<NewsCategory, string> = {
-  finance: "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20",
+  finance: "bg-sky-500/10 text-sky-700 dark:text-sky-400 border-sky-500/20",
   economy: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20",
   fiscal: "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20",
-  local: "bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/20",
+  local: "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20",
   region: "bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border-indigo-500/20",
-  world: "bg-red-500/10 text-red-700 dark:text-red-400 border-red-500/20",
+  world: "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/20",
   wellness: "bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/20",
-  positive: "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400 border-yellow-500/20",
+  positive: "bg-lime-500/10 text-lime-700 dark:text-lime-400 border-lime-500/20",
   internal: "bg-slate-500/10 text-slate-700 dark:text-slate-400 border-slate-500/20",
 };
 

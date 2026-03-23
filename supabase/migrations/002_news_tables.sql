@@ -72,11 +72,9 @@ CREATE TABLE IF NOT EXISTS news_articles (
   fetched_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   is_featured BOOLEAN NOT NULL DEFAULT FALSE,
   reading_time_minutes INT NOT NULL DEFAULT 1,
-  external_id TEXT,
+  external_id TEXT UNIQUE,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
-
-CREATE UNIQUE INDEX IF NOT EXISTS idx_news_articles_external_id ON news_articles(external_id) WHERE external_id IS NOT NULL;
 CREATE INDEX IF NOT EXISTS idx_news_articles_category ON news_articles(category);
 CREATE INDEX IF NOT EXISTS idx_news_articles_published ON news_articles(published_at DESC);
 CREATE INDEX IF NOT EXISTS idx_news_articles_language ON news_articles(language);
