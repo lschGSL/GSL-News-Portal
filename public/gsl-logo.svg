@@ -9,8 +9,8 @@
       <stop offset="100%" stop-color="#b0b0b0"/>
     </linearGradient>
   </defs>
-  <!-- Red L-bracket (top-left corner) -->
-  <path d="M0 0 H64 V28 H28 V64 H0 Z" fill="url(#redGrad)"/>
-  <!-- Gray L-bracket (bottom-right corner) -->
-  <path d="M72 36 H100 V100 H36 V72 H72 Z" fill="url(#grayGrad)"/>
+  <!-- Red L-bracket (top + left arms, corner at top-left) -->
+  <path d="M0 0 H67 V33 H33 V67 H0 Z" fill="url(#redGrad)"/>
+  <!-- Gray L-bracket (right + bottom arms, corner at bottom-right) -->
+  <path d="M67 33 H100 V100 H33 V67 H67 Z" fill="url(#grayGrad)"/>
 </svg>
