@@ -6,7 +6,7 @@
     </linearGradient>
   </defs>
   <!-- Red L-shape (top-left) -->
-  <path d="M5 5 H60 V30 H30 V60 H5 Z" fill="url(#redGrad)"/>
+  <path d="M5 5 H58 V42 H42 V95 H5 Z" fill="url(#redGrad)"/>
   <!-- Gray L-shape (bottom-right) -->
-  <path d="M30 45 H55 V70 H95 V95 H30 Z" fill="#a8a8a8"/>
+  <path d="M58 5 H95 V95 H42 V42 H58 Z" fill="#a8a8a8"/>
 </svg>
