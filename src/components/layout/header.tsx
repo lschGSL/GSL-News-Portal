@@ -8,7 +8,6 @@ import { useTheme } from "next-themes";
 import { useState, useTransition } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
-import { Newspaper } from "lucide-react";
 import type { UserProfile } from "@/lib/types";
 
 interface HeaderProps {
@@ -56,7 +55,7 @@ export function Header({ user }: HeaderProps) {
             <Menu className="h-5 w-5" />
           </Button>
           <div className="flex items-center gap-2 lg:hidden">
-            <Newspaper className="h-6 w-6 text-primary" />
+            <img src="/gsl-logo.svg" alt="GSL" className="h-7 w-7" />
             <span className="font-bold text-sm">{t("common.appName")}</span>
           </div>
         </div>

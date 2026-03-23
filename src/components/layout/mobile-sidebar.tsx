@@ -61,7 +61,7 @@ export function MobileSidebar({ user, open, onClose }: MobileSidebarProps) {
       <aside className="fixed inset-y-0 left-0 w-64 flex flex-col bg-sidebar-background shadow-xl">
         <div className="flex h-16 items-center justify-between border-b px-6">
           <div className="flex items-center gap-2">
-            <Newspaper className="h-6 w-6 text-sidebar-primary" />
+            <img src="/gsl-logo.svg" alt="GSL" className="h-7 w-7" />
             <span className="font-bold text-sm text-sidebar-foreground">
               {t("common.appName")}
             </span>
