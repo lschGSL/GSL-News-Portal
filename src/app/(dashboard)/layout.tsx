@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/header";
+import { Sidebar } from "@/components/layout/sidebar";
 import { createClient } from "@/lib/supabase/server";
 import type { UserProfile } from "@/lib/types";
 
@@ -24,16 +25,19 @@ export default async function DashboardLayout({
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header user={profile} />
-      <main className="flex-1 mx-auto w-full max-w-7xl px-4 py-6">
-        {children}
-      </main>
-      <footer className="border-t py-4">
-        <div className="mx-auto max-w-7xl px-4 text-center text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} GSL Group. All rights reserved.
-        </div>
-      </footer>
+    <div className="min-h-screen flex">
+      <Sidebar user={profile} />
+      <div className="flex-1 flex flex-col min-w-0">
+        <Header user={profile} />
+        <main className="flex-1 px-6 py-6">
+          {children}
+        </main>
+        <footer className="border-t py-4">
+          <div className="px-6 text-center text-xs text-muted-foreground">
+            &copy; {new Date().getFullYear()} GSL Group. All rights reserved.
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
