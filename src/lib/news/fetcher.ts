@@ -100,6 +100,7 @@ export async function fetchGNewsArticles(params: {
   language: SupportedLocale;
   country?: string;
   max?: number;
+  targetCategory?: NewsCategory;
 }): Promise<FetchedArticle[]> {
   const apiKey = process.env.GNEWS_API_KEY;
   if (!apiKey) {
@@ -135,6 +136,9 @@ export async function fetchGNewsArticles(params: {
       world: "world",
       health: "wellness",
       general: "local",
+      science: "world",
+      technology: "economy",
+      entertainment: "positive",
     };
 
     return (data.articles ?? []).map(
@@ -154,7 +158,7 @@ export async function fetchGNewsArticles(params: {
         source_url: article.url,
         source_id: null,
         image_url: article.image ?? null,
-        category: categoryMap[params.category ?? ""] ?? "world",
+        category: params.targetCategory ?? categoryMap[params.category ?? ""] ?? "world",
         language: params.language,
         region: params.country === "lu" ? "luxembourg" : null,
         published_at: article.publishedAt ?? new Date().toISOString(),
@@ -207,13 +211,29 @@ export async function fetchAllNews(sources: Array<{
     }
   }
 
-  // Also fetch from GNews API for each language
+  // Also fetch from GNews API for each language and category
   const gnewsResults = await Promise.allSettled([
+    // Economy & Finance — Luxembourg focus
     fetchGNewsArticles({ language: "fr", country: "lu", category: "business" }),
     fetchGNewsArticles({ language: "de", country: "lu", category: "business" }),
+    fetchGNewsArticles({ language: "en", country: "lu", category: "business" }),
+    // World news
+    fetchGNewsArticles({ language: "fr", category: "world" }),
     fetchGNewsArticles({ language: "en", category: "world" }),
-    fetchGNewsArticles({ language: "fr", query: "bien-être santé" }),
-    fetchGNewsArticles({ language: "en", query: "positive good news" }),
+    fetchGNewsArticles({ language: "de", category: "world" }),
+    // Fiscal / Tax
+    fetchGNewsArticles({ language: "fr", query: "fiscalité impôts Luxembourg", targetCategory: "fiscal" }),
+    fetchGNewsArticles({ language: "en", query: "tax regulation Luxembourg", targetCategory: "fiscal" }),
+    // Wellness / Health
+    fetchGNewsArticles({ language: "fr", query: "bien-être santé", targetCategory: "wellness" }),
+    fetchGNewsArticles({ language: "de", category: "health" }),
+    fetchGNewsArticles({ language: "en", category: "health" }),
+    // Positive News
+    fetchGNewsArticles({ language: "en", query: "positive good news", targetCategory: "positive" }),
+    fetchGNewsArticles({ language: "fr", query: "bonnes nouvelles positif", targetCategory: "positive" }),
+    // Grande Région
+    fetchGNewsArticles({ language: "fr", query: "Lorraine Metz Thionville", targetCategory: "region" }),
+    fetchGNewsArticles({ language: "de", query: "Saarland Trier Großregion", targetCategory: "region" }),
   ]);
 
   for (const result of gnewsResults) {
