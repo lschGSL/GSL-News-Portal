@@ -64,7 +64,9 @@
     "lastUpdate": "Letzte Aktualisierung",
     "nextUpdate": "Nächste Aktualisierung",
     "morningEdition": "Morgenausgabe (06:00)",
-    "afternoonEdition": "Nachmittagsausgabe (13:00)"
+    "afternoonEdition": "Nachmittagsausgabe (13:00)",
+    "openOriginal": "Originalartikel öffnen",
+    "cannotEmbed": "Diese Website erlaubt keine eingebettete Anzeige. Klicken Sie unten, um den Artikel zu lesen."
   },
   "preferences": {
     "title": "Leseeinstellungen",
@@ -131,6 +133,7 @@
     "world": "Welt",
     "wellness": "Wohlbefinden",
     "positive": "Positive Nachrichten",
+    "professional": "Berufsverbände",
     "internal": "Intern"
   },
   "regions": {

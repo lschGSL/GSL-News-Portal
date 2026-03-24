@@ -20,6 +20,7 @@ interface NewsCardProps {
   type: "external" | "internal";
   isBookmarked?: boolean;
   onBookmark?: () => void;
+  onOpenReader?: (url: string, title: string, sourceName: string) => void;
   featured?: boolean;
 }
 
@@ -28,6 +29,7 @@ export function NewsCard({
   type,
   isBookmarked = false,
   onBookmark,
+  onOpenReader,
   featured = false,
 }: NewsCardProps) {
   const t = useTranslations();
@@ -64,10 +66,22 @@ export function NewsCard({
       )}
     >
       <a
-        href={articleUrl}
-        target={type === "external" ? "_blank" : undefined}
+        href={type === "external" ? undefined : articleUrl}
+        target={type === "internal" ? undefined : "_blank"}
         rel={type === "external" ? "noopener noreferrer" : undefined}
-        className="flex flex-col h-full"
+        className="flex flex-col h-full cursor-pointer"
+        onClick={
+          type === "external"
+            ? (e) => {
+                e.preventDefault();
+                if (onOpenReader) {
+                  onOpenReader(articleUrl, article.title, sourceName ?? "");
+                } else {
+                  window.open(articleUrl, "_blank", "noopener,noreferrer");
+                }
+              }
+            : undefined
+        }
       >
         {/* Image */}
         {article.image_url && (

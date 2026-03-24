@@ -64,7 +64,9 @@
     "lastUpdate": "Last update",
     "nextUpdate": "Next update",
     "morningEdition": "Morning edition (06:00)",
-    "afternoonEdition": "Afternoon edition (13:00)"
+    "afternoonEdition": "Afternoon edition (13:00)",
+    "openOriginal": "Open original article",
+    "cannotEmbed": "This site does not allow embedded display. Click below to read the article."
   },
   "preferences": {
     "title": "Reading Preferences",
@@ -131,6 +133,7 @@
     "world": "World",
     "wellness": "Wellness",
     "positive": "Positive News",
+    "professional": "Professional Orgs",
     "internal": "Internal"
   },
   "regions": {

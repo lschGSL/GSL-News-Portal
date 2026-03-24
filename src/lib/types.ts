@@ -12,6 +12,7 @@ export const NEWS_CATEGORIES = [
   "world",
   "wellness",
   "positive",
+  "professional",
   "internal",
 ] as const;
 
@@ -26,6 +27,7 @@ export const CATEGORY_LABELS: Record<NewsCategory, Record<string, string>> = {
   world: { fr: "Monde", de: "Welt", en: "World" },
   wellness: { fr: "Bien-être", de: "Wohlbefinden", en: "Wellness" },
   positive: { fr: "Positive News", de: "Positive Nachrichten", en: "Positive News" },
+  professional: { fr: "Organisations Pro.", de: "Berufsverbände", en: "Professional Orgs" },
   internal: { fr: "Interne", de: "Intern", en: "Internal" },
 };
 
@@ -38,6 +40,7 @@ export const CATEGORY_COLORS: Record<NewsCategory, string> = {
   world: "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/20",
   wellness: "bg-teal-500/10 text-teal-700 dark:text-teal-400 border-teal-500/20",
   positive: "bg-lime-500/10 text-lime-700 dark:text-lime-400 border-lime-500/20",
+  professional: "bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-500/20",
   internal: "bg-slate-500/10 text-slate-700 dark:text-slate-400 border-slate-500/20",
 };
 

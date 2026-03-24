@@ -12,6 +12,7 @@ import {
   Heart,
   Sun,
   Building2,
+  Briefcase,
 } from "lucide-react";
 import { NEWS_CATEGORIES, CATEGORY_LABELS, type NewsCategory } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -25,6 +26,7 @@ const CATEGORY_ICONS: Record<string, React.ElementType> = {
   world: Earth,
   wellness: Heart,
   positive: Sun,
+  professional: Briefcase,
   internal: Building2,
 };
 
