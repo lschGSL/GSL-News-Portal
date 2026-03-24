@@ -33,7 +33,11 @@
     "loginTitle": "Bei GSL News anmelden",
     "registerTitle": "Konto erstellen",
     "loginSubtitle": "Zugriff auf Ihre personalisierten Nachrichten",
-    "registerSubtitle": "Treten Sie der GSL-Community bei"
+    "registerSubtitle": "Treten Sie der GSL-Community bei",
+    "setPasswordTitle": "Passwort festlegen",
+    "setPasswordSubtitle": "Wählen Sie ein Passwort für Ihr Konto",
+    "setPassword": "Passwort festlegen",
+    "passwordsMismatch": "Passwörter stimmen nicht überein"
   },
   "nav": {
     "news": "Nachrichten",
