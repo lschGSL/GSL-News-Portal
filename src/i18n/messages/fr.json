@@ -64,7 +64,9 @@
     "lastUpdate": "Dernière mise à jour",
     "nextUpdate": "Prochaine mise à jour",
     "morningEdition": "Édition du matin (06h00)",
-    "afternoonEdition": "Édition de l'après-midi (13h00)"
+    "afternoonEdition": "Édition de l'après-midi (13h00)",
+    "openOriginal": "Ouvrir l'article original",
+    "cannotEmbed": "Ce site ne permet pas l'affichage intégré. Cliquez ci-dessous pour lire l'article."
   },
   "preferences": {
     "title": "Préférences de lecture",
@@ -131,6 +133,7 @@
     "world": "Monde",
     "wellness": "Bien-être",
     "positive": "Positive News",
+    "professional": "Organisations Pro.",
     "internal": "Interne"
   },
   "regions": {

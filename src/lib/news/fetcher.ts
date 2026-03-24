@@ -28,6 +28,17 @@ function generateExternalId(url: string): string {
   return createHash("sha256").update(url).digest("hex").slice(0, 32);
 }
 
+// Normalize a title for fuzzy deduplication
+function normalizeTitle(title: string): string {
+  return title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // strip diacritics
+    .replace(/[^a-z0-9\s]/g, "")    // strip punctuation
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 // ---- RSS Fetching ----
 export async function fetchRssFeed(source: {
   name: string;
@@ -236,6 +247,12 @@ export async function fetchAllNews(sources: Array<{
     // Grande Région
     fetchGNewsArticles({ language: "fr", query: "Lorraine Metz Thionville", targetCategory: "region" }),
     fetchGNewsArticles({ language: "de", query: "Saarland Trier Großregion", targetCategory: "region" }),
+    // Luxembourg Local (additional)
+    fetchGNewsArticles({ language: "fr", country: "lu", category: "general", targetCategory: "local" }),
+    fetchGNewsArticles({ language: "fr", query: "Luxembourg actualité commune ville", targetCategory: "local" }),
+    // Professional organizations
+    fetchGNewsArticles({ language: "fr", query: "ABBL ALFI OEC chambre commerce Luxembourg", targetCategory: "professional" }),
+    fetchGNewsArticles({ language: "en", query: "Luxembourg fund industry ALFI LPEA ABBL", targetCategory: "professional" }),
   ]);
 
   for (const result of gnewsResults) {
@@ -244,11 +261,17 @@ export async function fetchAllNews(sources: Array<{
     }
   }
 
-  // Deduplicate by external_id
-  const seen = new Set<string>();
+  // Deduplicate by external_id AND by normalized title (same title from
+  // different sources = duplicate). Keep the first occurrence (often the
+  // original publisher).
+  const seenIds = new Set<string>();
+  const seenTitles = new Set<string>();
   return allArticles.filter((article) => {
-    if (seen.has(article.external_id)) return false;
-    seen.add(article.external_id);
+    if (seenIds.has(article.external_id)) return false;
+    const normTitle = normalizeTitle(article.title);
+    if (normTitle.length > 10 && seenTitles.has(normTitle)) return false;
+    seenIds.add(article.external_id);
+    if (normTitle.length > 10) seenTitles.add(normTitle);
     return true;
   });
 }

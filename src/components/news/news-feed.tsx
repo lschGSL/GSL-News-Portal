@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Loader2, RefreshCw, Search } from "lucide-react";
 import { NewsCard } from "./news-card";
 import { CategoryFilter } from "./category-filter";
+import { ArticleReader } from "./article-reader";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -27,6 +28,11 @@ export function NewsFeed({ initialArticles, preferences, userId }: NewsFeedProps
   const [bookmarks, setBookmarks] = useState<Set<string>>(new Set());
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [readerArticle, setReaderArticle] = useState<{
+    url: string;
+    title: string;
+    sourceName: string;
+  } | null>(null);
   const perPage = 20;
 
   // Apply filters
@@ -198,6 +204,9 @@ export function NewsFeed({ initialArticles, preferences, userId }: NewsFeedProps
               featured
               isBookmarked={bookmarks.has(featured.id)}
               onBookmark={userId ? () => handleBookmark(featured.id) : undefined}
+              onOpenReader={(url, title, sourceName) =>
+                setReaderArticle({ url, title, sourceName })
+              }
             />
           )}
           {/* Rest */}
@@ -208,6 +217,9 @@ export function NewsFeed({ initialArticles, preferences, userId }: NewsFeedProps
               type="external"
               isBookmarked={bookmarks.has(article.id)}
               onBookmark={userId ? () => handleBookmark(article.id) : undefined}
+              onOpenReader={(url, title, sourceName) =>
+                setReaderArticle({ url, title, sourceName })
+              }
             />
           ))}
         </div>
@@ -223,6 +235,16 @@ export function NewsFeed({ initialArticles, preferences, userId }: NewsFeedProps
             {loading ? t("common.loading") : t("common.readMore")}
           </Button>
         </div>
+      )}
+
+      {/* Article Reader Overlay */}
+      {readerArticle && (
+        <ArticleReader
+          url={readerArticle.url}
+          title={readerArticle.title}
+          sourceName={readerArticle.sourceName}
+          onClose={() => setReaderArticle(null)}
+        />
       )}
     </div>
   );

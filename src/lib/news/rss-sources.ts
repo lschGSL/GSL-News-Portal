@@ -22,6 +22,26 @@ export const DEFAULT_RSS_SOURCES: RssSourceConfig[] = [
   { name: "Tageblatt", url: "https://www.tageblatt.lu/feed/", category: "local", language: "de", region: "luxembourg" },
   { name: "L'essentiel", url: "https://www.lessentiel.lu/fr/rss.xml", category: "local", language: "fr", region: "luxembourg" },
   { name: "Chronicle.lu", url: "https://chronicle.lu/rss", category: "economy", language: "en", region: "luxembourg" },
+  { name: "Luxembourg Times", url: "https://www.luxtimes.lu/rss", category: "local", language: "en", region: "luxembourg" },
+  { name: "Virgule (culture)", url: "https://www.virgule.lu/rss", category: "local", language: "fr", region: "luxembourg" },
+  { name: "Delano", url: "https://delano.lu/feed/rss", category: "economy", language: "en", region: "luxembourg" },
+  { name: "Reporter.lu", url: "https://www.reporter.lu/feed/", category: "local", language: "fr", region: "luxembourg" },
+  { name: "Contacto.lu", url: "https://www.contacto.lu/rss", category: "local", language: "fr", region: "luxembourg" },
+
+  // --- Professional Organizations (Luxembourg) ---
+  { name: "OEC Luxembourg", url: "https://www.oec.lu/fr/rss", category: "professional", language: "fr", region: "luxembourg" },
+  { name: "ABBL", url: "https://www.abbl.lu/feed/", category: "professional", language: "fr", region: "luxembourg" },
+  { name: "ALFI", url: "https://www.alfi.lu/en/feed", category: "professional", language: "en", region: "luxembourg" },
+  { name: "ACA Luxembourg", url: "https://www.aca.lu/fr/feed", category: "professional", language: "fr", region: "luxembourg" },
+  { name: "Chambre de Commerce", url: "https://www.cc.lu/rss/actualites", category: "professional", language: "fr", region: "luxembourg" },
+  { name: "Chambre des Métiers", url: "https://www.cdm.lu/rss", category: "professional", language: "fr", region: "luxembourg" },
+  { name: "Ordre des Avocats", url: "https://www.barreau.lu/feed/", category: "professional", language: "fr", region: "luxembourg" },
+  { name: "Fedil", url: "https://www.fedil.lu/fr/feed/", category: "professional", language: "fr", region: "luxembourg" },
+  { name: "UEL", url: "https://www.uel.lu/fr/feed/", category: "professional", language: "fr", region: "luxembourg" },
+  { name: "LPEA", url: "https://www.lpea.lu/feed", category: "professional", language: "en", region: "luxembourg" },
+  { name: "CLC", url: "https://www.clc.lu/fr/feed", category: "professional", language: "fr", region: "luxembourg" },
+  { name: "LIHH", url: "https://www.lih.lu/feed/", category: "professional", language: "en", region: "luxembourg" },
+  { name: "Luxembourg for Finance", url: "https://www.luxembourgforfinance.com/feed/", category: "professional", language: "en", region: "luxembourg" },
 
   // --- Grande Région ---
   { name: "Républicain Lorrain", url: "https://www.republicain-lorrain.fr/rss", category: "region", language: "fr", region: "lorraine" },
