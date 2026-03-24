@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
-import { X, ExternalLink, Maximize2, Minimize2, ArrowLeft } from "lucide-react";
+import { X, ExternalLink, Maximize2, Minimize2, ArrowLeft, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -18,6 +18,13 @@ export function ArticleReader({ url, title, sourceName, onClose }: ArticleReader
   const t = useTranslations();
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [iframeError, setIframeError] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  // Proxy the URL through our API to bypass X-Frame-Options restrictions
+  const proxyUrl = useMemo(
+    () => `/api/proxy-article?url=${encodeURIComponent(url)}`,
+    [url]
+  );
 
   return (
     <div
@@ -67,7 +74,7 @@ export function ArticleReader({ url, title, sourceName, onClose }: ArticleReader
       {/* Content area */}
       <div
         className={cn(
-          "flex-1 overflow-hidden bg-white dark:bg-zinc-900",
+          "flex-1 overflow-hidden bg-white dark:bg-zinc-900 relative",
           isFullscreen ? "" : "sm:rounded-b-lg sm:border-x sm:border-b"
         )}
       >
@@ -82,13 +89,24 @@ export function ArticleReader({ url, title, sourceName, onClose }: ArticleReader
             </Button>
           </div>
         ) : (
-          <iframe
-            src={url}
-            title={title}
-            className="w-full h-full border-0"
-            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-            onError={() => setIframeError(true)}
-          />
+          <>
+            {loading && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+              </div>
+            )}
+            <iframe
+              src={proxyUrl}
+              title={title}
+              className="w-full h-full border-0"
+              sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+              onLoad={() => setLoading(false)}
+              onError={() => {
+                setLoading(false);
+                setIframeError(true);
+              }}
+            />
+          </>
         )}
       </div>
     </div>
